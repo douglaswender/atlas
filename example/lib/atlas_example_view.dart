@@ -14,6 +14,24 @@ class AtlasExampleView extends StatelessWidget {
         ),
         children: const [
           AtlasText.heading1('Atlas Design System'),
+          SizedBox(
+            height: 8,
+          ),
+          AtlasButton(text: 'Login'),
+          SizedBox(
+            height: 8,
+          ),
+          AtlasButton(
+            text: 'Login',
+            disabled: true,
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          AtlasButton(
+            text: 'Login',
+            busy: true,
+          )
         ],
       ),
     );
