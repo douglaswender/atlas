@@ -21,13 +21,13 @@ class AtlasButton extends StatelessWidget with Component {
     super.key,
     required this.text,
     this.behaviour = Behaviour.regular,
-  }) : styles = AtlasButtonStyles.regular();
+  }) : styles = AtlasButtonStyles.standard();
 
   factory AtlasButton.factory(
       {required String text, required Behaviour behaviour}) {
     return AtlasButton(
       text: text,
-      styles: AtlasButtonStyles.regular(),
+      styles: AtlasButtonStyles.standard(),
       behaviour: behaviour,
     );
   }
@@ -62,7 +62,20 @@ class AtlasButton extends StatelessWidget with Component {
   Widget whenLoading(
       styles, otherStyles, BuildContext context, Behaviour childBehaviour) {
     // TODO: implement whenLoading
-    throw UnimplementedError();
+    return GestureDetector(
+      child: AnimatedContainer(
+          duration: const Duration(milliseconds: 350),
+          width: MediaQuery.of(context).size.width,
+          height: 48,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: AtlasColor.secondaryColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: const CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+          )),
+    );
   }
 
   @override

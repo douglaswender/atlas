@@ -15,10 +15,13 @@ class AtlasButtonSharedStyle {
 }
 
 class AtlasButtonStyles {
-  static Style<AtlasButtonStyle, AtlasButtonSharedStyle> regular() =>
+  static Style<AtlasButtonStyle, AtlasButtonSharedStyle> standard() =>
       Style<AtlasButtonStyle, AtlasButtonSharedStyle>(
           regular: AtlasButtonStyle(
             textStyle: const TextStyle(fontSize: 16),
+          ),
+          loading: AtlasButtonStyle(
+            textStyle: const TextStyle(fontSize: 22),
           ),
           shared: AtlasButtonSharedStyle(
               boxDecoration:
