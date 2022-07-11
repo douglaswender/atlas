@@ -1,6 +1,6 @@
+import 'package:atlas/core/behaviour/behaviour.dart';
 import 'package:flutter/material.dart';
 
-import '../behaviour.dart';
 import 'style.dart';
 
 abstract class BaseComponent<T, U> {

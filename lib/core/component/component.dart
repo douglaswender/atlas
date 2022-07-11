@@ -1,7 +1,8 @@
 import 'package:atlas/core/behaviour/behaviour.dart';
-import 'package:atlas/core/behaviour/component/base_component.dart';
-import 'package:atlas/core/behaviour/component/style.dart';
+import 'package:atlas/core/component/style.dart';
 import 'package:flutter/material.dart';
+
+import 'base_component.dart';
 
 abstract class Component<T, U> implements BaseComponent<T, U> {
   @override

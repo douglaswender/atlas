@@ -62,7 +62,10 @@ class _AtlasExampleViewState extends State<AtlasExampleView> {
             text: 'text',
             behaviour: _behaviour,
           ),
-          AtlasButton.standard(text: 'text'),
+          AtlasButton.standard(
+            text: 'text',
+            behaviour: _behaviour,
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(

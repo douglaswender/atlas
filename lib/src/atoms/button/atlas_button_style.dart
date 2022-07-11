@@ -1,4 +1,4 @@
-import 'package:atlas/core/behaviour/component/style.dart';
+import 'package:atlas/core/component/style.dart';
 import 'package:flutter/material.dart';
 
 class AtlasButtonStyle {
