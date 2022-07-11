@@ -1,7 +1,7 @@
 import 'package:atlas/atlas.dart';
 import 'package:atlas/core/behaviour/behaviour.dart';
-import 'package:atlas/core/behaviour/component/component.dart';
-import 'package:atlas/core/behaviour/component/style.dart';
+import 'package:atlas/core/component/component.dart';
+import 'package:atlas/core/component/style.dart';
 import 'package:atlas/src/atoms/button/atlas_button_style.dart';
 import 'package:atlas/src/shared/styles/atlas_color.dart';
 import 'package:flutter/material.dart';
@@ -20,9 +20,11 @@ class AtlasButton extends StatelessWidget with Component {
   AtlasButton.standard({
     super.key,
     required this.text,
-    this.behaviour = Behaviour.regular,
+    required this.behaviour,
   }) : styles = AtlasButtonStyles.standard();
 
+  //vantagem: não precisa da "key" dos widgets
+  //desvantagem: um pouco mais difícil de implementar
   factory AtlasButton.factory(
       {required String text, required Behaviour behaviour}) {
     return AtlasButton(
