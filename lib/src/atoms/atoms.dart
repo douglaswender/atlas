@@ -1,2 +1,2 @@
-export 'atlas_text.dart';
-export 'atlas_button.dart';
+export 'text/atlas_text.dart';
+export 'button/atlas_button.dart';
