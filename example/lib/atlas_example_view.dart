@@ -27,6 +27,10 @@ class _AtlasExampleViewState extends State<AtlasExampleView> {
         "name": "Empty",
       },
       {
+        "type": Behaviour.disabled,
+        "name": "Disabled",
+      },
+      {
         "type": Behaviour.loading,
         "name": "Loading",
       },
@@ -54,17 +58,20 @@ class _AtlasExampleViewState extends State<AtlasExampleView> {
           vertical: 30,
         ),
         children: [
-          AtlasText.heading1('Atlas Design System'),
-          SizedBox(
+          AtlasText.heading(behaviour: _behaviour, text: 'atlas design system'),
+          const SizedBox(
             height: 8,
           ),
           AtlasButton.factory(
-            text: 'text',
+            text: 'factory',
             behaviour: _behaviour,
           ),
           AtlasButton.standard(
-            text: 'text',
+            text: 'standard',
             behaviour: _behaviour,
+            onPressed: () {
+              print("print from standard constructor");
+            },
           ),
         ],
       ),

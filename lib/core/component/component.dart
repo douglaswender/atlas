@@ -6,32 +6,32 @@ import 'base_component.dart';
 
 abstract class Component<T, U> implements BaseComponent<T, U> {
   @override
-  Widget whenDisabled(
-      T styles, U otherStyles, BuildContext context, Behaviour childBehaviour) {
+  Widget whenDisabled(T styles, U? otherStyles, BuildContext context,
+      Behaviour childBehaviour) {
     throw "$this does not implements Behaviour.disabled";
   }
 
   @override
-  Widget whenEmpty(
-      T styles, U otherStyles, BuildContext context, Behaviour childBehaviour) {
+  Widget whenEmpty(T styles, U? otherStyles, BuildContext context,
+      Behaviour childBehaviour) {
     throw "$this does not implements Behaviour.empty";
   }
 
   @override
-  Widget whenError(
-      T styles, U otherStyles, BuildContext context, Behaviour childBehaviour) {
+  Widget whenError(T styles, U? otherStyles, BuildContext context,
+      Behaviour childBehaviour) {
     throw "$this does not implements Behaviour.error";
   }
 
   @override
-  Widget whenLoading(
-      T styles, U otherStyles, BuildContext context, Behaviour childBehaviour) {
+  Widget whenLoading(T styles, U? otherStyles, BuildContext context,
+      Behaviour childBehaviour) {
     throw "$this does not implements Behaviour.loading";
   }
 
   @override
-  Widget whenRegular(
-      T styles, U otherStyles, BuildContext context, Behaviour childBehaviour) {
+  Widget whenRegular(T styles, U? otherStyles, BuildContext context,
+      Behaviour childBehaviour) {
     throw "$this does not implements Behaviour.regular";
   }
 
@@ -52,13 +52,14 @@ abstract class Component<T, U> implements BaseComponent<T, U> {
       case Behaviour.error:
         if (styles.error == null) {
           return whenRegular(styles.regular, styles.shared, context, behaviour);
+        } else {
+          return whenError(
+            styles.error!,
+            styles.shared!,
+            context,
+            behaviour,
+          );
         }
-        return whenError(
-          styles.error!,
-          styles.shared!,
-          context,
-          behaviour,
-        );
 
       case Behaviour.empty:
         if (styles.empty == null) {

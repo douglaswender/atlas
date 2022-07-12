@@ -6,13 +6,17 @@ import 'package:atlas/src/atoms/button/atlas_button_style.dart';
 import 'package:atlas/src/shared/styles/atlas_color.dart';
 import 'package:flutter/material.dart';
 
-class AtlasButton extends StatelessWidget with Component {
+class AtlasButton extends StatelessWidget
+    with Component<AtlasButtonStyle, AtlasButtonSharedStyle> {
   final String text;
   final Behaviour behaviour;
   final Style<AtlasButtonStyle, AtlasButtonSharedStyle> styles;
+  final Function? onPressed;
+
   const AtlasButton({
     super.key,
     required this.text,
+    this.onPressed,
     this.behaviour = Behaviour.regular,
     required this.styles,
   });
@@ -21,16 +25,21 @@ class AtlasButton extends StatelessWidget with Component {
     super.key,
     required this.text,
     required this.behaviour,
+    this.onPressed,
   }) : styles = AtlasButtonStyles.standard();
 
   //vantagem: não precisa da "key" dos widgets
   //desvantagem: um pouco mais difícil de implementar
-  factory AtlasButton.factory(
-      {required String text, required Behaviour behaviour}) {
+  factory AtlasButton.factory({
+    required String text,
+    required Behaviour behaviour,
+    Function? onPressed,
+  }) {
     return AtlasButton(
       text: text,
       styles: AtlasButtonStyles.standard(),
       behaviour: behaviour,
+      onPressed: onPressed,
     );
   }
 
@@ -42,28 +51,26 @@ class AtlasButton extends StatelessWidget with Component {
   @override
   Widget whenDisabled(
       styles, otherStyles, BuildContext context, Behaviour childBehaviour) {
-    // TODO: implement whenDisabled
-    throw UnimplementedError();
-  }
-
-  @override
-  Widget whenEmpty(
-      styles, otherStyles, BuildContext context, Behaviour childBehaviour) {
-    // TODO: implement whenEmpty
-    throw UnimplementedError();
-  }
-
-  @override
-  Widget whenError(
-      styles, otherStyles, BuildContext context, Behaviour childBehaviour) {
-    // TODO: implement whenError
-    throw UnimplementedError();
+    return GestureDetector(
+      child: AnimatedContainer(
+          duration: const Duration(milliseconds: 350),
+          width: MediaQuery.of(context).size.width,
+          height: 48,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: styles.backgroundColor ?? AtlasColor.fourthColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: AtlasText.body(
+            behaviour: behaviour,
+            text: text,
+          )),
+    );
   }
 
   @override
   Widget whenLoading(
       styles, otherStyles, BuildContext context, Behaviour childBehaviour) {
-    // TODO: implement whenLoading
     return GestureDetector(
       child: AnimatedContainer(
           duration: const Duration(milliseconds: 350),
@@ -85,18 +92,20 @@ class AtlasButton extends StatelessWidget with Component {
       styles, otherStyles, BuildContext context, Behaviour childBehaviour) {
     return GestureDetector(
       child: AnimatedContainer(
-          duration: const Duration(milliseconds: 350),
-          width: MediaQuery.of(context).size.width,
-          height: 48,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: AtlasColor.secondaryColor,
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: AtlasText.body(
-            text,
-            color: Colors.white,
-          )),
+        duration: const Duration(milliseconds: 350),
+        width: MediaQuery.of(context).size.width,
+        height: 48,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: AtlasColor.primaryColor,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: AtlasText.body(
+          behaviour: behaviour,
+          text: text,
+        ),
+      ),
+      onTap: () => onPressed,
     );
   }
 }

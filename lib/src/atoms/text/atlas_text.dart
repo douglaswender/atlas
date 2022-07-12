@@ -1,66 +1,69 @@
-import 'package:atlas/src/shared/styles/atlas_color.dart';
-import 'package:atlas/src/shared/styles/atlas_text_style.dart';
-import 'package:flutter/material.dart';
+import 'package:atlas/src/atoms/text/atlas_text_component.dart';
+import 'package:atlas/src/atoms/text/atlas_text_style.dart';
 
-@immutable
-class AtlasText extends StatelessWidget {
-  final String text;
-  final TextStyle style;
-
+class AtlasText extends AtlasTextComponent {
   const AtlasText({
-    Key? key,
-    required this.text,
-    required this.style,
-  }) : super(key: key);
+    super.key,
+    required super.text,
+    required super.styles,
+    required super.behaviour,
+  });
 
-  const AtlasText.heading1(
-    this.text, {
-    Key? key,
-  })  : style = AtlasTextStyle.heading1Style,
-        super(key: key);
-
-  const AtlasText.heading2(
-    this.text, {
-    Key? key,
-  })  : style = AtlasTextStyle.heading2Style,
-        super(key: key);
-
-  const AtlasText.heading3(
-    this.text, {
-    Key? key,
-  })  : style = AtlasTextStyle.heading3Style,
-        super(key: key);
-
-  const AtlasText.headline(
-    this.text, {
-    Key? key,
-  })  : style = AtlasTextStyle.headlineStyle,
-        super(key: key);
-
-  const AtlasText.subheadline(
-    this.text, {
-    Key? key,
-  })  : style = AtlasTextStyle.subheadlineStyle,
-        super(key: key);
-
-  AtlasText.body(
-    this.text, {
-    Color color = AtlasColor.secondaryColor,
-    Key? key,
-  })  : style = AtlasTextStyle.bodyStyle.copyWith(color: color),
-        super(key: key);
-
-  const AtlasText.caption(
-    this.text, {
-    Key? key,
-  })  : style = AtlasTextStyle.captionStyle,
-        super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: style,
-    );
+  factory AtlasText.heading({
+    required text,
+    required behaviour,
+  }) {
+    return AtlasText(
+        text: text, styles: AtlasTextStyles.headingStyle, behaviour: behaviour);
   }
+
+  factory AtlasText.body({
+    required text,
+    required behaviour,
+  }) {
+    return AtlasText(
+        text: text, styles: AtlasTextStyles.bodyStyle, behaviour: behaviour);
+  }
+
+  // AtlasTextComponent.heading2({
+  //   required this.text,
+  //   required this.behaviour,
+  //   Key? key,
+  // })  : styles = AtlasTextStyles.bodyStyle,
+  //       super(key: key);
+
+  // AtlasTextComponent.heading3({
+  //   required this.text,
+  //   required this.behaviour,
+  //   Key? key,
+  // })  : styles = AtlasTextStyles.bodyStyle,
+  //       super(key: key);
+
+  // AtlasTextComponent.headline({
+  //   required this.text,
+  //   required this.behaviour,
+  //   Key? key,
+  // })  : styles = AtlasTextStyles.bodyStyle,
+  //       super(key: key);
+
+  // AtlasTextComponent.subheadline({
+  //   required this.text,
+  //   required this.behaviour,
+  //   Key? key,
+  // })  : styles = AtlasTextStyles.bodyStyle,
+  //       super(key: key);
+
+  // AtlasTextComponent.body({
+  //   required this.text,
+  //   required this.behaviour,
+  //   Key? key,
+  // })  : styles = AtlasTextStyles.bodyStyle,
+  //       super(key: key);
+
+  // AtlasTextComponent.caption({
+  //   required this.text,
+  //   required this.behaviour,
+  //   Key? key,
+  // })  : styles = AtlasTextStyles.bodyStyle,
+  //       super(key: key);
 }

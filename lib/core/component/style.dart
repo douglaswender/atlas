@@ -5,7 +5,7 @@ class Style<T, U> {
   final T? error;
   final T? disabled;
   final T? empty;
-  final U shared;
+  final U? shared;
 
   const Style({
     required this.regular,
@@ -13,7 +13,7 @@ class Style<T, U> {
     this.error,
     this.disabled,
     this.empty,
-    required this.shared,
+    this.shared,
   });
 
   T create(T Function() creator) => creator();
