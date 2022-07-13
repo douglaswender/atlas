@@ -62,10 +62,6 @@ class _AtlasExampleViewState extends State<AtlasExampleView> {
           const SizedBox(
             height: 8,
           ),
-          AtlasButton.factory(
-            text: 'factory',
-            behaviour: _behaviour,
-          ),
           AtlasButton.standard(
             text: 'standard',
             behaviour: _behaviour,

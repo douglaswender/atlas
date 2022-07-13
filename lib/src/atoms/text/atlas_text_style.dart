@@ -23,6 +23,8 @@ class AtlasTextStyles {
           fontSize: 16,
           fontWeight: FontWeight.w400,
         ),
+        error: AtlasTextStyle(
+            fontColor: Colors.red, fontSize: 16, fontWeight: FontWeight.w400),
       );
 
   static Style<AtlasTextStyle, AtlasTextSharedStyle> get headingStyle =>

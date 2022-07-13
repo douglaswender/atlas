@@ -42,20 +42,40 @@ abstract class Component<T, U> implements BaseComponent<T, U> {
         if (styles.regular == null) {
           throw "$this uses $behaviour but it does not have $behaviour style defined";
         }
-        return whenRegular(styles.regular, styles.shared, context, behaviour);
+        return whenRegular(
+          styles.regular,
+          styles.shared,
+          context,
+          behaviour,
+        );
       case Behaviour.loading:
         if (styles.loading == null) {
-          return whenRegular(styles.regular, styles.shared, context, behaviour);
+          return whenRegular(
+            styles.regular,
+            styles.shared,
+            context,
+            behaviour,
+          );
         }
-        return whenLoading(styles.loading!, styles.shared, context, behaviour);
+        return whenLoading(
+          styles.loading ?? styles.regular,
+          styles.shared,
+          context,
+          behaviour,
+        );
 
       case Behaviour.error:
         if (styles.error == null) {
-          return whenRegular(styles.regular, styles.shared, context, behaviour);
+          return whenRegular(
+            styles.regular,
+            styles.shared,
+            context,
+            behaviour,
+          );
         } else {
           return whenError(
-            styles.error!,
-            styles.shared!,
+            styles.error ?? styles.regular,
+            styles.shared,
             context,
             behaviour,
           );
@@ -63,24 +83,34 @@ abstract class Component<T, U> implements BaseComponent<T, U> {
 
       case Behaviour.empty:
         if (styles.empty == null) {
-          return whenRegular(styles.regular, styles.shared, context, behaviour);
+          return whenRegular(
+            styles.regular,
+            styles.shared,
+            context,
+            behaviour,
+          );
         }
 
         return whenEmpty(
-          styles.empty!,
-          styles.shared!,
+          styles.empty ?? styles.regular,
+          styles.shared,
           context,
           behaviour,
         );
 
       case Behaviour.disabled:
         if (styles.disabled == null) {
-          return whenRegular(styles.regular, styles.shared, context, behaviour);
+          return whenRegular(
+            styles.regular,
+            styles.shared,
+            context,
+            behaviour,
+          );
         }
 
         return whenDisabled(
-          styles.disabled!,
-          styles.shared!,
+          styles.disabled ?? styles.regular,
+          styles.shared,
           context,
           behaviour,
         );

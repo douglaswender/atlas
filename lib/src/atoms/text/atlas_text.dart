@@ -9,61 +9,15 @@ class AtlasText extends AtlasTextComponent {
     required super.behaviour,
   });
 
-  factory AtlasText.heading({
-    required text,
-    required behaviour,
-  }) {
-    return AtlasText(
-        text: text, styles: AtlasTextStyles.headingStyle, behaviour: behaviour);
-  }
+  AtlasText.heading({
+    super.key,
+    required super.text,
+    required super.behaviour,
+  }) : super(styles: AtlasTextStyles.headingStyle);
 
-  factory AtlasText.body({
-    required text,
-    required behaviour,
-  }) {
-    return AtlasText(
-        text: text, styles: AtlasTextStyles.bodyStyle, behaviour: behaviour);
-  }
-
-  // AtlasTextComponent.heading2({
-  //   required this.text,
-  //   required this.behaviour,
-  //   Key? key,
-  // })  : styles = AtlasTextStyles.bodyStyle,
-  //       super(key: key);
-
-  // AtlasTextComponent.heading3({
-  //   required this.text,
-  //   required this.behaviour,
-  //   Key? key,
-  // })  : styles = AtlasTextStyles.bodyStyle,
-  //       super(key: key);
-
-  // AtlasTextComponent.headline({
-  //   required this.text,
-  //   required this.behaviour,
-  //   Key? key,
-  // })  : styles = AtlasTextStyles.bodyStyle,
-  //       super(key: key);
-
-  // AtlasTextComponent.subheadline({
-  //   required this.text,
-  //   required this.behaviour,
-  //   Key? key,
-  // })  : styles = AtlasTextStyles.bodyStyle,
-  //       super(key: key);
-
-  // AtlasTextComponent.body({
-  //   required this.text,
-  //   required this.behaviour,
-  //   Key? key,
-  // })  : styles = AtlasTextStyles.bodyStyle,
-  //       super(key: key);
-
-  // AtlasTextComponent.caption({
-  //   required this.text,
-  //   required this.behaviour,
-  //   Key? key,
-  // })  : styles = AtlasTextStyles.bodyStyle,
-  //       super(key: key);
+  AtlasText.body({
+    super.key,
+    required super.text,
+    required super.behaviour,
+  }) : super(styles: AtlasTextStyles.bodyStyle);
 }

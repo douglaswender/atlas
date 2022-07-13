@@ -34,4 +34,17 @@ class AtlasTextComponent extends StatelessWidget
       ),
     );
   }
+
+  @override
+  Widget whenError(AtlasTextStyle styles, AtlasTextSharedStyle? otherStyles,
+      BuildContext context, Behaviour childBehaviour) {
+    return Text(
+      text,
+      style: TextStyle(
+        fontSize: styles.fontSize,
+        color: styles.fontColor,
+        fontWeight: styles.fontWeight,
+      ),
+    );
+  }
 }

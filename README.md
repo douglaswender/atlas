@@ -1,39 +1,82 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# design system
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+A ideia aqui é centralizar tudo o que é referente a determinado componente, estilos, construtores, e a componentização mesmo do widget.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+Cada componente é dividido em 3 arquivos:
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+- começando pelo aquivo com o prefixo _style, é responsável pela definição dos parâmetros que estilizam o componente e também pelos estilos pré-definidos na class "Styles".
 
-## Features
+```
+class AtlasExampleStyle {
+    final Color? backgroundColor;
+    final BoxDecoration boxDecoration;
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+    AtlasExampleStyle({this.backgroundColor, required this.boxDecoration});
 
-## Getting started
+}
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+class AtlasExampleSharedStyle {
+    final Style<AtlasTextStyle, AtlasTextSharedStyle> textStyle;
 
-## Usage
+    AtlasExampleSharedStyle({required this.textStyle});
+}
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+class AtlasExampleStyles {
+    static Style<AtlasExampleStyle, AtlasExampleSharedStyle> standard() =>
+      Style<AtlasExampleStyle, AtlasExampleSharedStyle>(
+        regular: AtlasExampleStyle(
+          boxDecoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+        loading: AtlasExampleStyle(
+          boxDecoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+        disabled: AtlasExampleStyle(
+          backgroundColor: AtlasTheme.t().color.danger,
+          boxDecoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+        error: AtlasExampleStyle(
+          backgroundColor: AtlasTheme.t().color.warning,
+          boxDecoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+        shared: AtlasExampleSharedStyle(
+          textStyle: AtlasTextStyles.bodyStyle,
+        ),
+      );
+}
+}
 
-```dart
-const like = 'sample';
 ```
 
-## Additional information
+- o com prefixo '_component' que determina como o componente se comporta de acordo com o estado (behaviour)
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+
+
+## Atoms
+- Text (body, heading, caption, link)
+- TextField
+- Checkbox
+- RadioButton
+- Toggle
+- Tag
+- Card
+- Icon
+- Image
+
+## Molecules
+
+- IconButton
+
+## Organisms
+
+## Tokens
+- Colors
+- Sizes
+- Icons
