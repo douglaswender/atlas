@@ -1,6 +1,6 @@
-import 'package:atlas/src/atoms/button/atlas_button_style.dart';
+import 'package:atlas/src/atoms/button/atlas_button_styles.dart';
 
-import 'atlas_button_component.dart';
+import 'component/atlas_button_component.dart';
 
 class AtlasButton extends AtlasButtonComponent {
   const AtlasButton({

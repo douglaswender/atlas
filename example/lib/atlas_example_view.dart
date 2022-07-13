@@ -69,6 +69,9 @@ class _AtlasExampleViewState extends State<AtlasExampleView> {
               print("print from standard constructor");
             },
           ),
+          AtlasCard.standard(
+              child: AtlasText.body(text: 'oi', behaviour: _behaviour),
+              behaviour: _behaviour),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(

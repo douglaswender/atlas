@@ -1,8 +1,8 @@
 import 'package:atlas/atlas.dart';
 import 'package:atlas/core/behaviour/behaviour.dart';
 import 'package:atlas/core/component/component.dart';
-import 'package:atlas/core/component/style.dart';
-import 'package:atlas/src/atoms/button/atlas_button_style.dart';
+import 'package:atlas/core/component/component_style.dart';
+import 'package:atlas/src/atoms/button/component/atlas_button_style.dart';
 import 'package:atlas/src/tokens/atlas_sizes.dart';
 import 'package:atlas/src/tokens/atlas_theme.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +11,7 @@ class AtlasButtonComponent extends StatelessWidget
     with Component<AtlasButtonStyle, AtlasButtonSharedStyle> {
   final String text;
   final Behaviour behaviour;
-  final Style<AtlasButtonStyle, AtlasButtonSharedStyle> styles;
+  final ComponentStyle<AtlasButtonStyle, AtlasButtonSharedStyle> styles;
   final Function()? onPressed;
 
   const AtlasButtonComponent({

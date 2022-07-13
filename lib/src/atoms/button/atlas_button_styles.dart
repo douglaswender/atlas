@@ -1,24 +1,12 @@
-import 'package:atlas/core/component/style.dart';
-import 'package:atlas/src/atoms/text/atlas_text_style.dart';
+import 'package:atlas/core/component/component_style.dart';
+import 'package:atlas/src/atoms/button/component/atlas_button_style.dart';
+import 'package:atlas/src/atoms/text/atlas_text_styles.dart';
 import 'package:atlas/src/tokens/atlas_theme.dart';
 import 'package:flutter/material.dart';
 
-class AtlasButtonStyle {
-  final Color? backgroundColor;
-  final BoxDecoration boxDecoration;
-
-  AtlasButtonStyle({this.backgroundColor, required this.boxDecoration});
-}
-
-class AtlasButtonSharedStyle {
-  final Style<AtlasTextStyle, AtlasTextSharedStyle> textStyle;
-
-  AtlasButtonSharedStyle({required this.textStyle});
-}
-
 class AtlasButtonStyles {
-  static Style<AtlasButtonStyle, AtlasButtonSharedStyle> standard() =>
-      Style<AtlasButtonStyle, AtlasButtonSharedStyle>(
+  static ComponentStyle<AtlasButtonStyle, AtlasButtonSharedStyle> standard() =>
+      ComponentStyle<AtlasButtonStyle, AtlasButtonSharedStyle>(
         regular: AtlasButtonStyle(
           boxDecoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),

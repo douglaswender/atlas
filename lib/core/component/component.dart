@@ -1,5 +1,5 @@
 import 'package:atlas/core/behaviour/behaviour.dart';
-import 'package:atlas/core/component/style.dart';
+import 'package:atlas/core/component/component_style.dart';
 import 'package:flutter/material.dart';
 
 import 'base_component.dart';
@@ -36,7 +36,8 @@ abstract class Component<T, U> implements BaseComponent<T, U> {
   }
 
   @override
-  Widget render(Behaviour behaviour, BuildContext context, Style<T, U> styles) {
+  Widget render(
+      Behaviour behaviour, BuildContext context, ComponentStyle<T, U> styles) {
     switch (behaviour) {
       case Behaviour.regular:
         if (styles.regular == null) {

@@ -1,5 +1,5 @@
-import 'package:atlas/src/atoms/text/atlas_text_component.dart';
-import 'package:atlas/src/atoms/text/atlas_text_style.dart';
+import 'package:atlas/src/atoms/text/atlas_text_styles.dart';
+import 'package:atlas/src/atoms/text/component/atlas_text_component.dart';
 
 class AtlasText extends AtlasTextComponent {
   const AtlasText({

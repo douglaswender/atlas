@@ -1,7 +1,7 @@
 import 'package:atlas/core/behaviour/behaviour.dart';
 import 'package:flutter/material.dart';
 
-import 'style.dart';
+import 'component_style.dart';
 
 abstract class BaseComponent<T, U> {
   Widget whenRegular(
@@ -42,6 +42,6 @@ abstract class BaseComponent<T, U> {
   Widget render(
     Behaviour behaviour,
     BuildContext context,
-    Style<T, U> styles,
+    ComponentStyle<T, U> styles,
   );
 }

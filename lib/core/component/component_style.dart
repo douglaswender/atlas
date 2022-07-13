@@ -1,5 +1,5 @@
 ///Configura o estilo do componente baseado no style
-class Style<T, U> {
+class ComponentStyle<T, U> {
   final T regular;
   final T? loading;
   final T? error;
@@ -7,7 +7,7 @@ class Style<T, U> {
   final T? empty;
   final U? shared;
 
-  const Style({
+  const ComponentStyle({
     required this.regular,
     this.loading,
     this.error,
