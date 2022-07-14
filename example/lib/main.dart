@@ -1,3 +1,4 @@
+import 'package:atlas/atlas.dart';
 import 'package:example/atlas_example_view.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
-      home: AtlasExampleView(),
+      home: const AtlasExampleView(),
+      theme: ThemeData(
+          fontFamily: AtlasTheme.fontFamily,
+          primarySwatch: Colors.deepPurple,
+          primaryColor: AtlasTheme.t().color.primary),
     );
   }
 }

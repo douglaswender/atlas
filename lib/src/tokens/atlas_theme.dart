@@ -24,6 +24,8 @@ class AtlasTheme {
 
   static AtlasSizes sizes = AtlasSizes();
 
+  static String fontFamily = 'Poppins';
+
   static AtlasDefaultTheme t({String? brand}) {
     if (_instance == null && brand == null) {
       _instance = DefaultTheme();
