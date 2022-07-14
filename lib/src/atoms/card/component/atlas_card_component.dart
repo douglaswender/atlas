@@ -2,7 +2,6 @@ import 'package:atlas/core/behaviour/behaviour.dart';
 import 'package:atlas/core/component/component.dart';
 import 'package:atlas/core/component/component_style.dart';
 import 'package:atlas/src/atoms/card/component/atlas_card_style.dart';
-import 'package:atlas/src/shared/styles/atlas_text_style.dart';
 import 'package:flutter/material.dart';
 
 class AtlasCardComponent extends StatelessWidget

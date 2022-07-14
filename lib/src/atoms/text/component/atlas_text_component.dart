@@ -27,11 +27,7 @@ class AtlasTextComponent extends StatelessWidget
       BuildContext context, Behaviour childBehaviour) {
     return Text(
       text,
-      style: TextStyle(
-        fontSize: styles.fontSize,
-        color: styles.fontColor,
-        fontWeight: styles.fontWeight,
-      ),
+      style: styles.textStyle,
     );
   }
 

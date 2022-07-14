@@ -1,4 +1,5 @@
 import 'package:atlas/src/tokens/atlas_color.dart';
+import 'package:atlas/src/tokens/atlas_sizes.dart';
 
 abstract class AtlasDefaultTheme {
   AtlasColor get color;
@@ -7,12 +8,12 @@ abstract class AtlasDefaultTheme {
   String get themeIndex;
 }
 
-class CrecheTheme implements AtlasDefaultTheme {
+class DefaultTheme implements AtlasDefaultTheme {
   @override
-  AtlasColor get color => CrecheColors();
+  AtlasColor get color => DefaultColors();
 
   @override
-  String get theme => 'creche';
+  String get theme => 'default';
 
   @override
   String get themeIndex => '0';
@@ -21,9 +22,11 @@ class CrecheTheme implements AtlasDefaultTheme {
 class AtlasTheme {
   static AtlasDefaultTheme? _instance;
 
+  static AtlasSizes sizes = AtlasSizes();
+
   static AtlasDefaultTheme t({String? brand}) {
     if (_instance == null && brand == null) {
-      _instance = CrecheTheme();
+      _instance = DefaultTheme();
     }
 
     return _instance!;

@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 
 abstract class AtlasColor {
+  //SYSTEM DEFAULT COLORS
   Color get primary;
   Color get secondary;
   Color get warning;
   Color get danger;
   List<Color> get grandient;
+
+  //SYSTEM ACESSIBLE COLORS
+  Color get black;
+  Color get white;
+  Color get background;
+  Color get grey1;
+  Color get grey2;
+
   // static const standard = Color(0xff9933ff);
   // static const secondaryColor = Color(0xff34c759);
   // static const dangerColor = Color(0xffff3b30);
@@ -17,7 +26,7 @@ abstract class AtlasColor {
   // ];
 }
 
-class CrecheColors implements AtlasColor {
+class DefaultColors implements AtlasColor {
   @override
   Color get danger => const Color(0xffff3b30);
 
@@ -33,4 +42,19 @@ class CrecheColors implements AtlasColor {
 
   @override
   Color get warning => const Color(0xffff9500);
+
+  @override
+  Color get background => const Color(0xffffffff);
+
+  @override
+  Color get black => const Color(0xff000000);
+
+  @override
+  Color get grey1 => const Color(0xff8E8E93);
+
+  @override
+  Color get grey2 => const Color(0xffE5E5EA);
+
+  @override
+  Color get white => const Color(0xffffffff);
 }

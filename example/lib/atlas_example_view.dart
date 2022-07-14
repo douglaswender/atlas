@@ -70,8 +70,12 @@ class _AtlasExampleViewState extends State<AtlasExampleView> {
             },
           ),
           AtlasCard.standard(
-              child: AtlasText.body(text: 'oi', behaviour: _behaviour),
-              behaviour: _behaviour),
+            behaviour: _behaviour,
+            child: AtlasText.body(
+              behaviour: _behaviour,
+              text: "oi",
+            ),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(

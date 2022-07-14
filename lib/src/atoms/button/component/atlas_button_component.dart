@@ -3,8 +3,6 @@ import 'package:atlas/core/behaviour/behaviour.dart';
 import 'package:atlas/core/component/component.dart';
 import 'package:atlas/core/component/component_style.dart';
 import 'package:atlas/src/atoms/button/component/atlas_button_style.dart';
-import 'package:atlas/src/tokens/atlas_sizes.dart';
-import 'package:atlas/src/tokens/atlas_theme.dart';
 import 'package:flutter/material.dart';
 
 class AtlasButtonComponent extends StatelessWidget
@@ -34,11 +32,11 @@ class AtlasButtonComponent extends StatelessWidget
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 350),
         width: MediaQuery.of(context).size.width,
-        height: AtlasSize.s48,
+        height: AtlasTheme.sizes.s48,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: styles.backgroundColor ?? AtlasTheme.t().color.primary,
-          borderRadius: BorderRadius.circular(AtlasSize.s8),
+          borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
         ),
         child: AtlasText(
           behaviour: behaviour,
@@ -56,11 +54,11 @@ class AtlasButtonComponent extends StatelessWidget
       child: AnimatedContainer(
           duration: const Duration(milliseconds: 350),
           width: MediaQuery.of(context).size.width,
-          height: AtlasSize.s48,
+          height: AtlasTheme.sizes.s48,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: AtlasTheme.t().color.primary,
-            borderRadius: BorderRadius.circular(AtlasSize.s8),
+            borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
           ),
           child: const CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
@@ -76,11 +74,11 @@ class AtlasButtonComponent extends StatelessWidget
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 350),
         width: MediaQuery.of(context).size.width,
-        height: AtlasSize.s48,
+        height: AtlasTheme.sizes.s48,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: AtlasTheme.t().color.primary,
-          borderRadius: BorderRadius.circular(AtlasSize.s8),
+          borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
         ),
         child: AtlasText(
           behaviour: behaviour,
@@ -99,11 +97,11 @@ class AtlasButtonComponent extends StatelessWidget
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 350),
         width: MediaQuery.of(context).size.width,
-        height: AtlasSize.s48,
+        height: AtlasTheme.sizes.s48,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: styles.backgroundColor ?? AtlasTheme.t().color.warning,
-          borderRadius: BorderRadius.circular(AtlasSize.s8),
+          borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
         ),
         child: AtlasText(
           behaviour: behaviour,
