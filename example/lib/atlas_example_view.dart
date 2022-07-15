@@ -75,8 +75,8 @@ class _AtlasExampleViewState extends State<AtlasExampleView>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: AtlasText.heading(
-            behaviour: _behaviour, text: 'Atlas Design System'),
+        centerTitle: true,
+        title: AtlasText.heading(behaviour: _behaviour, text: 'Atlas'),
         bottom: TabBar(
           controller: tabController,
           tabs: tabs,

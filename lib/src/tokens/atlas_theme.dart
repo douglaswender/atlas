@@ -1,4 +1,5 @@
 import 'package:atlas/src/tokens/atlas_color.dart';
+import 'package:atlas/src/tokens/atlas_icons.dart';
 import 'package:atlas/src/tokens/atlas_sizes.dart';
 
 abstract class AtlasDefaultTheme {
@@ -23,6 +24,8 @@ class AtlasTheme {
   static AtlasDefaultTheme? _instance;
 
   static AtlasSizes sizes = AtlasSizes();
+
+  static AtlasIcons icons = AtlasIcons();
 
   static String fontFamily = 'Poppins';
 

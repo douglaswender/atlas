@@ -28,9 +28,11 @@ class AtomTabViewState extends State<AtomTabView> {
               title: Text(e.key),
               children: [
                 ...e.value.entries
-                    .map((e) => Padding(
+                    .map((e) => Container(
+                          width: MediaQuery.of(context).size.width,
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(e.key),
                               const SizedBox(

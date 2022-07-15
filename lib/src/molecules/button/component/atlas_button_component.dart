@@ -2,7 +2,7 @@ import 'package:atlas/atlas.dart';
 import 'package:atlas/core/behaviour/behaviour.dart';
 import 'package:atlas/core/component/component.dart';
 import 'package:atlas/core/component/component_style.dart';
-import 'package:atlas/src/atoms/button/component/atlas_button_style.dart';
+import 'package:atlas/src/molecules/button/component/atlas_button_style.dart';
 import 'package:flutter/material.dart';
 
 class AtlasButtonComponent extends StatelessWidget

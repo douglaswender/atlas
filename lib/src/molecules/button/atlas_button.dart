@@ -1,4 +1,4 @@
-import 'package:atlas/src/atoms/button/atlas_button_styles.dart';
+import 'package:atlas/src/molecules/button/atlas_button_styles.dart';
 
 import 'component/atlas_button_component.dart';
 

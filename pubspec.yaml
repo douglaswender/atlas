@@ -37,6 +37,9 @@ flutter:
           weight: 500
         - asset: assets/fonts/Poppins-Bold.ttf
           weight: 700
+    - family: AtlasIcons
+      fonts:
+        - asset: assets/fonts/atlas-32px.ttf
 
   #   - family: Trajan Pro
   #     fonts:

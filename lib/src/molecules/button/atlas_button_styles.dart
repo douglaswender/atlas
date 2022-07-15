@@ -1,6 +1,6 @@
 import 'package:atlas/core/component/component_style.dart';
-import 'package:atlas/src/atoms/button/component/atlas_button_style.dart';
 import 'package:atlas/src/atoms/text/atlas_text_styles.dart';
+import 'package:atlas/src/molecules/button/component/atlas_button_style.dart';
 import 'package:atlas/src/tokens/atlas_theme.dart';
 import 'package:flutter/material.dart';
 
