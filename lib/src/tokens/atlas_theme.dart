@@ -9,15 +9,28 @@ abstract class AtlasDefaultTheme {
   String get themeIndex;
 }
 
-class DefaultTheme implements AtlasDefaultTheme {
+class DefaultTheme extends AtlasDefaultTheme {
+  final _colors = DefaultColors();
   @override
-  AtlasColor get color => DefaultColors();
+  AtlasColor get color => _colors;
 
   @override
   String get theme => 'default';
 
   @override
   String get themeIndex => '0';
+}
+
+class DarkTheme extends AtlasDefaultTheme {
+  final _colors = DarkColors();
+  @override
+  AtlasColor get color => _colors;
+
+  @override
+  String get theme => 'dark';
+
+  @override
+  String get themeIndex => '1';
 }
 
 class AtlasTheme {
@@ -32,6 +45,15 @@ class AtlasTheme {
   static AtlasDefaultTheme t({String? brand}) {
     if (_instance == null && brand == null) {
       _instance = DefaultTheme();
+    } else {
+      switch (brand) {
+        case 'default':
+          _instance = DefaultTheme();
+          break;
+        case 'dark':
+          _instance = DarkTheme();
+          break;
+      }
     }
 
     return _instance!;

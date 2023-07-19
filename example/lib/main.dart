@@ -6,18 +6,27 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
   Widget build(BuildContext context) {
+    ThemeData theme = ThemeData(
+        fontFamily: AtlasTheme.fontFamily,
+        primaryColor: AtlasTheme.t().color.primary);
     return MaterialApp(
       title: 'Atlas',
       home: const AtlasExampleView(),
-      theme: ThemeData(
-          fontFamily: AtlasTheme.fontFamily,
-          primarySwatch: Colors.deepPurple,
-          primaryColor: AtlasTheme.t().color.primary),
+      theme: theme.copyWith(
+          colorScheme: theme.colorScheme.copyWith(
+        primary: AtlasTheme.t().color.primary,
+        secondary: AtlasTheme.t().color.primary,
+      )),
     );
   }
 }

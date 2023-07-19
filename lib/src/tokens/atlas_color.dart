@@ -26,7 +26,7 @@ abstract class AtlasColor {
   // ];
 }
 
-class DefaultColors implements AtlasColor {
+class DefaultColors extends AtlasColor {
   @override
   Color get danger => const Color(0xffff3b30);
 
@@ -57,4 +57,37 @@ class DefaultColors implements AtlasColor {
 
   @override
   Color get white => const Color(0xffffffff);
+}
+
+class DarkColors extends AtlasColor {
+  @override
+  Color get danger => const Color(0xff34c759);
+
+  @override
+  List<Color> get grandient =>
+      const [Color(0xffc13fef), Color(0xff8439ff), Color(0xff4845da)];
+
+  @override
+  Color get primary => const Color(0xff34c759);
+
+  @override
+  Color get secondary => const Color(0xff34c759);
+
+  @override
+  Color get warning => const Color(0xff34c759);
+
+  @override
+  Color get background => const Color(0xff34c759);
+
+  @override
+  Color get black => const Color(0xff34c759);
+
+  @override
+  Color get grey1 => const Color(0xff34c759);
+
+  @override
+  Color get grey2 => const Color(0xff34c759);
+
+  @override
+  Color get white => const Color(0xff34c759);
 }

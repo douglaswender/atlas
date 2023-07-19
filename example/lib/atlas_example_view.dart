@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:atlas/atlas.dart';
 
 class AtlasExampleView extends StatefulWidget {
-  const AtlasExampleView({Key? key}) : super(key: key);
+  const AtlasExampleView({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<AtlasExampleView> createState() => _AtlasExampleViewState();
@@ -13,6 +15,19 @@ class AtlasExampleView extends StatefulWidget {
 
 class _AtlasExampleViewState extends State<AtlasExampleView>
     with SingleTickerProviderStateMixin {
+  String actualTheme = 'default';
+
+  changeTheme() {
+    if (actualTheme == 'default') {
+      actualTheme = 'dark';
+      AtlasTheme.t(brand: 'dark');
+    } else {
+      actualTheme = 'default';
+      AtlasTheme.t(brand: 'default');
+    }
+    setState(() {});
+  }
+
   int _currentBehaviour = 0;
 
   List<Map<String, dynamic>> get _behaviours {
@@ -81,6 +96,15 @@ class _AtlasExampleViewState extends State<AtlasExampleView>
           controller: tabController,
           tabs: tabs,
         ),
+        actions: [
+          Text(AtlasTheme.t().theme),
+          IconButton(
+              onPressed: () {
+                changeTheme();
+                setState(() {});
+              },
+              icon: const Icon(Icons.dark_mode)),
+        ],
       ),
       body: TabBarView(
         controller: tabController,

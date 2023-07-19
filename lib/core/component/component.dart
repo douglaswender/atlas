@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'base_component.dart';
 
-abstract class Component<T, U> implements BaseComponent<T, U> {
+mixin Component<T, U> implements BaseComponent<T, U> {
   @override
   Widget whenDisabled(T styles, U? otherStyles, BuildContext context,
       Behaviour childBehaviour) {
