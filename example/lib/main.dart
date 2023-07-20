@@ -1,6 +1,9 @@
 import 'package:atlas/atlas.dart';
 import 'package:example/atlas_example_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'cubit/settings_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,14 +22,25 @@ class _MyAppState extends State<MyApp> {
     ThemeData theme = ThemeData(
         fontFamily: AtlasTheme.fontFamily,
         primaryColor: AtlasTheme.t().color.primary);
-    return MaterialApp(
-      title: 'Atlas',
-      home: const AtlasExampleView(),
-      theme: theme.copyWith(
-          colorScheme: theme.colorScheme.copyWith(
-        primary: AtlasTheme.t().color.primary,
-        secondary: AtlasTheme.t().color.primary,
-      )),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ThemeCubit(),
+        )
+      ],
+      child: BlocBuilder<ThemeCubit, ThemeState>(
+        builder: (context, state) {
+          return MaterialApp(
+            title: 'Atlas',
+            home: AtlasExampleView(),
+            theme: theme.copyWith(
+                colorScheme: theme.colorScheme.copyWith(
+              primary: AtlasTheme.t().color.primary,
+              secondary: AtlasTheme.t().color.primary,
+            )),
+          );
+        },
+      ),
     );
   }
 }

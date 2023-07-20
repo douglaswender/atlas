@@ -1,13 +1,20 @@
 import 'package:atlas/core/behaviour/behaviour.dart';
 import 'package:example/atoms/atom_tab_view.dart';
+import 'package:example/cubit/settings_cubit.dart';
 import 'package:example/molecules/molecule_tab_view.dart';
 import 'package:flutter/material.dart';
 import 'package:atlas/atlas.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AtlasExampleView extends StatefulWidget {
-  const AtlasExampleView({
+  final List<Tab> tabs;
+  AtlasExampleView({
     Key? key,
-  }) : super(key: key);
+  })  : tabs = [
+          const Tab(text: 'atoms'),
+          const Tab(text: 'molecules'),
+        ],
+        super(key: key);
 
   @override
   State<AtlasExampleView> createState() => _AtlasExampleViewState();
@@ -67,17 +74,17 @@ class _AtlasExampleViewState extends State<AtlasExampleView>
   Behaviour get _behaviour => _behaviours[_currentBehaviour]["type"];
   String get _behaviourName => _behaviours[_currentBehaviour]["name"];
 
-  static const List<Tab> tabs = <Tab>[
-    Tab(text: 'atoms'),
-    Tab(text: 'molecules'),
-  ];
+  // static const List<Tab> tabs = <Tab>[
+  //   Tab(text: 'atoms'),
+  //   Tab(text: 'molecules'),
+  // ];
 
   late TabController tabController;
 
   @override
   void initState() {
     super.initState();
-    tabController = TabController(length: tabs.length, vsync: this);
+    tabController = TabController(length: widget.tabs.length, vsync: this);
   }
 
   @override
@@ -88,22 +95,27 @@ class _AtlasExampleViewState extends State<AtlasExampleView>
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<ThemeCubit>();
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: AtlasText.heading(behaviour: _behaviour, text: 'Atlas'),
         bottom: TabBar(
           controller: tabController,
-          tabs: tabs,
+          tabs: widget.tabs,
         ),
         actions: [
-          Text(AtlasTheme.t().theme),
+          Text(cubit.theme.theme),
           IconButton(
               onPressed: () {
-                changeTheme();
-                setState(() {});
+                cubit.toggleTheme();
+                // changeTheme();
+                // setState(() {});
               },
-              icon: const Icon(Icons.dark_mode)),
+              icon: Icon(cubit is ThemeStateDark
+                  ? Icons.dark_mode
+                  : Icons.light_mode)),
         ],
       ),
       body: TabBarView(

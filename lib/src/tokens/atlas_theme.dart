@@ -43,17 +43,17 @@ class AtlasTheme {
   static String fontFamily = 'Poppins';
 
   static AtlasDefaultTheme t({String? brand}) {
-    if (_instance == null && brand == null) {
-      _instance = DefaultTheme();
-    } else {
-      switch (brand) {
-        case 'default':
-          _instance = DefaultTheme();
-          break;
-        case 'dark':
-          _instance = DarkTheme();
-          break;
-      }
+    _instance ??= DefaultTheme();
+    if (brand == null) {
+      return _instance!;
+    }
+    switch (brand) {
+      case 'default':
+        _instance = DefaultTheme();
+        break;
+      case 'dark':
+        _instance = DarkTheme();
+        break;
     }
 
     return _instance!;
