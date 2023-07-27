@@ -98,6 +98,7 @@ class _AtlasExampleViewState extends State<AtlasExampleView>
     final cubit = context.read<ThemeCubit>();
 
     return Scaffold(
+      backgroundColor: AtlasTheme.t().color.background,
       appBar: AppBar(
         centerTitle: true,
         title: AtlasText.heading(behaviour: _behaviour, text: 'Atlas'),

@@ -44,7 +44,7 @@ class DefaultColors extends AtlasColor {
   Color get warning => const Color(0xffff9500);
 
   @override
-  Color get background => const Color(0xffffffff);
+  Color get background => const Color(0xfff1f1f1);
 
   @override
   Color get black => const Color(0xff000000);
@@ -61,14 +61,14 @@ class DefaultColors extends AtlasColor {
 
 class DarkColors extends AtlasColor {
   @override
-  Color get danger => const Color(0xff34c759);
+  Color get danger => const Color(0xffff3b30);
 
   @override
   List<Color> get grandient =>
       const [Color(0xffc13fef), Color(0xff8439ff), Color(0xff4845da)];
 
   @override
-  Color get primary => const Color(0xff34c759);
+  Color get primary => const Color(0xff000000);
 
   @override
   Color get secondary => const Color(0xff34c759);
@@ -89,5 +89,5 @@ class DarkColors extends AtlasColor {
   Color get grey2 => const Color(0xff34c759);
 
   @override
-  Color get white => const Color(0xff34c759);
+  Color get white => const Color(0xffffffff);
 }

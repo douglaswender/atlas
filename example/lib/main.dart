@@ -22,12 +22,8 @@ class _MyAppState extends State<MyApp> {
     ThemeData theme = ThemeData(
         fontFamily: AtlasTheme.fontFamily,
         primaryColor: AtlasTheme.t().color.primary);
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => ThemeCubit(),
-        )
-      ],
+    return BlocProvider(
+      create: (context) => ThemeCubit(),
       child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, state) {
           return MaterialApp(

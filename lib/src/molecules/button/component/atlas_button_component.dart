@@ -77,7 +77,7 @@ class AtlasButtonComponent extends StatelessWidget
         height: AtlasTheme.sizes.s48,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: AtlasTheme.t().color.primary,
+          color: styles.backgroundColor,
           borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
         ),
         child: AtlasText(

@@ -17,4 +17,11 @@ class AtlasButton extends AtlasButtonComponent {
     required super.behaviour,
     super.onPressed,
   }) : super(styles: AtlasButtonStyles.standard());
+
+  AtlasButton.danger({
+    super.key,
+    required super.text,
+    required super.behaviour,
+    super.onPressed,
+  }) : super(styles: AtlasButtonStyles.danger());
 }

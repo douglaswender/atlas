@@ -49,11 +49,6 @@ class AtomTabViewState extends State<AtomTabView> {
   }
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.symmetric(
