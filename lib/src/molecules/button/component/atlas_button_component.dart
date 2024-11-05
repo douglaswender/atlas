@@ -69,7 +69,8 @@ class AtlasButtonComponent extends StatelessWidget
   @override
   Widget whenRegular(
       styles, otherStyles, BuildContext context, Behaviour childBehaviour) {
-    return GestureDetector(
+    return InkWell(
+      borderRadius: BorderRadius.circular(AtlasTheme.sizes.s32),
       onTap: onPressed,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 350),
@@ -78,7 +79,7 @@ class AtlasButtonComponent extends StatelessWidget
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: styles.backgroundColor,
-          borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
+          borderRadius: BorderRadius.circular(AtlasTheme.sizes.s32),
         ),
         child: AtlasText(
           behaviour: behaviour,

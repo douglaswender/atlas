@@ -9,6 +9,9 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 Widget defaultText(BuildContext context) {
   return AtlasButton.standard(
     text: context.knobs.string(label: 'Text', initialValue: 'Hello World'),
+    onPressed: () {
+      print('Button pressed');
+    },
     behaviour: context.knobs.list(label: 'behaviour', options: [
       Behaviour.regular,
       Behaviour.error,
