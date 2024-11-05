@@ -10,13 +10,26 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:widgetbook/widgetbook.dart' as _i1;
-import 'package:widgetbook_workspace/atoms/text.dart' as _i2;
-import 'package:widgetbook_workspace/molecules/button.dart' as _i3;
+import 'package:widgetbook_workspace/atoms/accordion.dart' as _i2;
+import 'package:widgetbook_workspace/atoms/text.dart' as _i3;
+import 'package:widgetbook_workspace/molecules/button.dart' as _i4;
 
 final directories = <_i1.WidgetbookNode>[
   _i1.WidgetbookFolder(
     name: 'atoms',
     children: [
+      _i1.WidgetbookFolder(
+        name: 'accordion',
+        children: [
+          _i1.WidgetbookLeafComponent(
+            name: 'AtlasAccordion',
+            useCase: _i1.WidgetbookUseCase(
+              name: 'Accordion',
+              builder: _i2.defaultText,
+            ),
+          )
+        ],
+      ),
       _i1.WidgetbookFolder(
         name: 'text',
         children: [
@@ -24,11 +37,11 @@ final directories = <_i1.WidgetbookNode>[
             name: 'AtlasText',
             useCase: _i1.WidgetbookUseCase(
               name: 'Default',
-              builder: _i2.defaultText,
+              builder: _i3.defaultText,
             ),
           )
         ],
-      )
+      ),
     ],
   ),
   _i1.WidgetbookFolder(
@@ -41,7 +54,7 @@ final directories = <_i1.WidgetbookNode>[
             name: 'AtlasButton',
             useCase: _i1.WidgetbookUseCase(
               name: 'Default',
-              builder: _i3.defaultText,
+              builder: _i4.defaultText,
             ),
           )
         ],

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class AtlasTextComponent extends StatelessWidget
     with Component<AtlasTextStyle, AtlasTextSharedStyle> {
-  final Behaviour behaviour;
+  final Behaviour state;
   final String text;
   final ComponentStyle<AtlasTextStyle, AtlasTextSharedStyle> styles;
 
@@ -14,7 +14,7 @@ class AtlasTextComponent extends StatelessWidget
     Key? key,
     required this.text,
     required this.styles,
-    required this.behaviour,
+    this.state = Behaviour.regular,
   }) : super(key: key);
 
   @override
@@ -39,4 +39,7 @@ class AtlasTextComponent extends StatelessWidget
       style: styles.textStyle?.copyWith(color: styles.fontColor),
     );
   }
+
+  @override
+  Behaviour get behaviour => state;
 }

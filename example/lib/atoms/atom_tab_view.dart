@@ -19,8 +19,8 @@ class AtomTabViewState extends State<AtomTabView> {
   List<Widget> _buildComponent(Behaviour behaviour) {
     atoms = {
       'AtlasText': {
-        'heading': AtlasText.heading(text: 'text', behaviour: behaviour),
-        'body': AtlasText.body(text: 'text', behaviour: behaviour),
+        'heading': AtlasText.heading(text: 'text', state: behaviour),
+        'body': AtlasText.body(text: 'text', state: behaviour),
       }
     };
     return atoms.entries

@@ -39,7 +39,7 @@ class AtlasButtonComponent extends StatelessWidget
           borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
         ),
         child: AtlasText(
-          behaviour: behaviour,
+          state: behaviour,
           text: text,
           styles: otherStyles!.textStyle,
         ),
@@ -82,7 +82,7 @@ class AtlasButtonComponent extends StatelessWidget
           borderRadius: BorderRadius.circular(AtlasTheme.sizes.s32),
         ),
         child: AtlasText(
-          behaviour: behaviour,
+          state: behaviour,
           text: text,
           styles: otherStyles!.textStyle,
         ),
@@ -105,7 +105,7 @@ class AtlasButtonComponent extends StatelessWidget
           borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
         ),
         child: AtlasText(
-          behaviour: behaviour,
+          state: behaviour,
           text: text,
           styles: otherStyles!.textStyle,
         ),

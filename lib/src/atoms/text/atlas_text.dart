@@ -6,18 +6,18 @@ class AtlasText extends AtlasTextComponent {
     super.key,
     required super.text,
     required super.styles,
-    required super.behaviour,
+    super.state,
   });
 
   AtlasText.heading({
     super.key,
     required super.text,
-    required super.behaviour,
+    super.state,
   }) : super(styles: AtlasTextStyles.headingStyle);
 
   AtlasText.body({
     super.key,
     required super.text,
-    required super.behaviour,
+    super.state,
   }) : super(styles: AtlasTextStyles.bodyStyle);
 }

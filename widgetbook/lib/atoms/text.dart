@@ -8,6 +8,6 @@ import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
 Widget defaultText(BuildContext context) {
   return AtlasText.heading(
     text: 'Hello World',
-    behaviour: Behaviour.regular,
+    state: Behaviour.regular,
   );
 }

@@ -8,7 +8,7 @@ class AtlasTextStyles {
   static ComponentStyle<AtlasTextStyle, AtlasTextSharedStyle> get bodyStyle =>
       ComponentStyle<AtlasTextStyle, AtlasTextSharedStyle>(
         regular: AtlasTextStyle(
-          fontColor: AtlasTheme.t().color.white,
+          fontColor: AtlasTheme.t().color.black,
           fontSize: 16,
           fontWeight: FontWeight.w400,
           textStyle: DefaultTextStyles().bodyRegular,

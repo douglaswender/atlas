@@ -101,7 +101,7 @@ class _AtlasExampleViewState extends State<AtlasExampleView>
       backgroundColor: AtlasTheme.t().color.background,
       appBar: AppBar(
         centerTitle: true,
-        title: AtlasText.heading(behaviour: _behaviour, text: 'Atlas'),
+        title: AtlasText.heading(state: _behaviour, text: 'Atlas'),
         bottom: TabBar(
           controller: tabController,
           tabs: widget.tabs,

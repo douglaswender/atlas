@@ -1,0 +1,86 @@
+import 'package:atlas/atlas.dart';
+import 'package:atlas/core/behaviour/behaviour.dart';
+import 'package:flutter/material.dart';
+
+class AtlasAccordion extends StatefulWidget {
+  const AtlasAccordion({super.key, required this.steps});
+
+  final List<AtlasAccordionStep> steps;
+
+  @override
+  State<AtlasAccordion> createState() => _AtlasAccordionState();
+}
+
+class _AtlasAccordionState extends State<AtlasAccordion> {
+  late List<AtlasAccordionStep> _steps;
+
+  @override
+  void initState() {
+    super.initState();
+    _steps = widget.steps;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      shrinkWrap: true,
+      // expansionCallback: (int index, bool isExpanded) {
+      //   // ignore: avoid_print
+      //   print('ExpansionPanelList isExpanded: $isExpanded');
+      //   setState(() {
+      //     _steps[index].isExpanded = !_steps[index].isExpanded;
+      //   });
+      // },
+      itemCount: _steps.length,
+      separatorBuilder: (context, index) => const Divider(),
+      itemBuilder: (context, index) => ExpansionTile(
+        title: AtlasText.body(
+          text: _steps[index].title,
+          state: Behaviour.regular,
+        ),
+        trailing: const Icon(Icons.add),
+        initiallyExpanded: _steps[index].isExpanded,
+        backgroundColor: Colors.transparent,
+        childrenPadding: const EdgeInsets.all(16),
+        shape: const Border(),
+        children: [_steps[index].body],
+      ),
+      // [
+      //   ExpansionPanel(
+      //     headerBuilder: (BuildContext context, bool isExpanded) {
+      //       return ListTile(
+      //         title: const Text('Panel 1'),
+      //       );
+      //     },
+      //     body: const ListTile(
+      //       title: Text('Panel 1 Body'),
+      //     ),
+      //     isExpanded: false,
+      //   ),
+      //   ExpansionPanel(
+      //     headerBuilder: (BuildContext context, bool isExpanded) {
+      //       return ListTile(
+      //         title: const Text('Panel 2'),
+      //       );
+      //     },
+      //     body: const ListTile(
+      //       title: Text('Panel 2 Body'),
+      //     ),
+      //     isExpanded: false,
+      //   ),
+      // ],
+    );
+  }
+}
+
+class AtlasAccordionStep {
+  final String title;
+  final Widget body;
+  bool isExpanded;
+
+  AtlasAccordionStep({
+    required this.title,
+    required this.body,
+    this.isExpanded = false,
+  });
+}
