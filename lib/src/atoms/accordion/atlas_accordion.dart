@@ -1,22 +1,31 @@
 import 'package:atlas/atlas.dart';
-import 'package:atlas/core/behaviour/behaviour.dart';
+import 'package:atlas/core/component/component.dart';
 import 'package:flutter/material.dart';
 
 class AtlasAccordion extends StatefulWidget {
-  const AtlasAccordion({super.key, required this.steps});
+  const AtlasAccordion({
+    super.key,
+    required this.steps,
+    this.state = AtlasState.regular,
+  });
 
   final List<AtlasAccordionStep> steps;
+
+  final AtlasState state;
 
   @override
   State<AtlasAccordion> createState() => _AtlasAccordionState();
 }
 
-class _AtlasAccordionState extends State<AtlasAccordion> {
+class _AtlasAccordionState extends State<AtlasAccordion> with Component {
   late List<AtlasAccordionStep> _steps;
+  @override
+  late final AtlasState state;
 
   @override
   void initState() {
     super.initState();
+    state = widget.state;
     _steps = widget.steps;
   }
 
@@ -36,7 +45,7 @@ class _AtlasAccordionState extends State<AtlasAccordion> {
       itemBuilder: (context, index) => ExpansionTile(
         title: AtlasText.body(
           text: _steps[index].title,
-          state: Behaviour.regular,
+          state: AtlasState.regular,
         ),
         trailing: const Icon(Icons.add),
         initiallyExpanded: _steps[index].isExpanded,

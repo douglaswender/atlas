@@ -31,7 +31,7 @@ class AtlasButtonStyles {
           ),
         ),
         shared: AtlasButtonSharedStyle(
-          textStyle: AtlasTextStyles.bodyStyle,
+          textStyle: AtlasTextStyles.buttonStyle,
         ),
       );
 
@@ -62,7 +62,7 @@ class AtlasButtonStyles {
           ),
         ),
         shared: AtlasButtonSharedStyle(
-          textStyle: AtlasTextStyles.bodyStyle,
+          textStyle: AtlasTextStyles.buttonStyle,
         ),
       );
 }

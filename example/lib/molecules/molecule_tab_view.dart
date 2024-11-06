@@ -1,12 +1,11 @@
 import 'package:atlas/atlas.dart';
-import 'package:atlas/core/behaviour/behaviour.dart';
 import 'package:flutter/material.dart';
 
 class MoleculeTabView extends StatefulWidget {
-  final Behaviour behaviour;
+  final AtlasState state;
   const MoleculeTabView({
     Key? key,
-    required this.behaviour,
+    required this.state,
   }) : super(key: key);
 
   @override
@@ -16,19 +15,19 @@ class MoleculeTabView extends StatefulWidget {
 class MoleculeTabViewState extends State<MoleculeTabView> {
   Map<String, Map<String, Widget>> molecules = {};
 
-  List<Widget> _buildComponent(Behaviour behaviour) {
+  List<Widget> _buildComponent(AtlasState state) {
     molecules = {
       'AtlasButton': {
         'standard': AtlasButton.standard(
           text: 'standard',
-          behaviour: widget.behaviour,
+          state: widget.state,
           onPressed: () {
             print("print from standard constructor");
           },
         ),
         'danger': AtlasButton.danger(
           text: 'danger',
-          behaviour: widget.behaviour,
+          state: widget.state,
           onPressed: () {
             print("print from standard constructor");
           },
@@ -67,7 +66,7 @@ class MoleculeTabViewState extends State<MoleculeTabView> {
         horizontal: 25,
         vertical: 30,
       ),
-      children: [..._buildComponent(widget.behaviour)],
+      children: [..._buildComponent(widget.state)],
     );
   }
 }

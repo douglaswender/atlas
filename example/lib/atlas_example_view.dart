@@ -1,4 +1,3 @@
-import 'package:atlas/core/behaviour/behaviour.dart';
 import 'package:example/atoms/atom_tab_view.dart';
 import 'package:example/cubit/settings_cubit.dart';
 import 'package:example/molecules/molecule_tab_view.dart';
@@ -35,44 +34,44 @@ class _AtlasExampleViewState extends State<AtlasExampleView>
     setState(() {});
   }
 
-  int _currentBehaviour = 0;
+  int _currentstate = 0;
 
-  List<Map<String, dynamic>> get _behaviours {
+  List<Map<String, dynamic>> get _states {
     return [
       {
-        "type": Behaviour.regular,
+        "type": AtlasState.regular,
         "name": "Regular",
       },
       {
-        "type": Behaviour.error,
+        "type": AtlasState.error,
         "name": "Error",
       },
       {
-        "type": Behaviour.empty,
+        "type": AtlasState.empty,
         "name": "Empty",
       },
       {
-        "type": Behaviour.disabled,
+        "type": AtlasState.disabled,
         "name": "Disabled",
       },
       {
-        "type": Behaviour.loading,
+        "type": AtlasState.loading,
         "name": "Loading",
       },
     ];
   }
 
-  void _changeBehaviour() {
-    if (_currentBehaviour + 1 == _behaviours.length) {
-      _currentBehaviour = 0;
+  void _changestate() {
+    if (_currentstate + 1 == _states.length) {
+      _currentstate = 0;
     } else {
-      _currentBehaviour++;
+      _currentstate++;
     }
     setState(() {});
   }
 
-  Behaviour get _behaviour => _behaviours[_currentBehaviour]["type"];
-  String get _behaviourName => _behaviours[_currentBehaviour]["name"];
+  AtlasState get _state => _states[_currentstate]["type"];
+  String get _stateName => _states[_currentstate]["name"];
 
   // static const List<Tab> tabs = <Tab>[
   //   Tab(text: 'atoms'),
@@ -101,7 +100,7 @@ class _AtlasExampleViewState extends State<AtlasExampleView>
       backgroundColor: AtlasTheme.t().color.background,
       appBar: AppBar(
         centerTitle: true,
-        title: AtlasText.heading(state: _behaviour, text: 'Atlas'),
+        title: AtlasText.heading(state: _state, text: 'Atlas'),
         bottom: TabBar(
           controller: tabController,
           tabs: widget.tabs,
@@ -122,12 +121,12 @@ class _AtlasExampleViewState extends State<AtlasExampleView>
       body: TabBarView(
         controller: tabController,
         children: [
-          AtomTabView(behaviour: _behaviour),
-          MoleculeTabView(behaviour: _behaviour)
+          AtomTabView(behaviour: _state),
+          MoleculeTabView(state: _state)
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-          onPressed: _changeBehaviour, label: Text(_behaviourName)),
+          onPressed: _changestate, label: Text(_stateName)),
     );
   }
 }

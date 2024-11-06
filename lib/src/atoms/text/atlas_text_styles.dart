@@ -8,7 +8,7 @@ class AtlasTextStyles {
   static ComponentStyle<AtlasTextStyle, AtlasTextSharedStyle> get bodyStyle =>
       ComponentStyle<AtlasTextStyle, AtlasTextSharedStyle>(
         regular: AtlasTextStyle(
-          fontColor: AtlasTheme.t().color.black,
+          fontColor: AtlasTheme.t().color.textPrimary,
           fontSize: 16,
           fontWeight: FontWeight.w400,
           textStyle: DefaultTextStyles().bodyRegular,
@@ -18,10 +18,20 @@ class AtlasTextStyles {
   static ComponentStyle<AtlasTextStyle, AtlasTextSharedStyle>
       get headingStyle => ComponentStyle<AtlasTextStyle, AtlasTextSharedStyle>(
             regular: AtlasTextStyle(
-              fontColor: AtlasTheme.t().color.white,
+              fontColor: AtlasTheme.t().color.textPrimary,
               fontSize: 32,
               fontWeight: FontWeight.w700,
               textStyle: DefaultTextStyles().headlineBold,
             ),
           );
+
+  static ComponentStyle<AtlasTextStyle, AtlasTextSharedStyle> get buttonStyle =>
+      ComponentStyle<AtlasTextStyle, AtlasTextSharedStyle>(
+        regular: AtlasTextStyle(
+          fontColor: AtlasTheme.t().color.white,
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          textStyle: DefaultTextStyles().bodyRegular,
+        ),
+      );
 }

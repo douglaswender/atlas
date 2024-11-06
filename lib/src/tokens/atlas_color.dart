@@ -7,6 +7,7 @@ abstract class AtlasColor {
   Color get warning;
   Color get danger;
   List<Color> get grandient;
+  Color get textPrimary;
 
   //SYSTEM ACESSIBLE COLORS
   Color get black;
@@ -50,6 +51,9 @@ class DefaultColors extends AtlasColor {
   Color get black => const Color(0xff000000);
 
   @override
+  Color get textPrimary => const Color(0xff000000);
+
+  @override
   Color get grey1 => const Color(0xff8E8E93);
 
   @override
@@ -68,7 +72,7 @@ class DarkColors extends AtlasColor {
       const [Color(0xffc13fef), Color(0xff8439ff), Color(0xff4845da)];
 
   @override
-  Color get primary => const Color(0xff000000);
+  Color get primary => const Color(0xff9933ff);
 
   @override
   Color get secondary => const Color(0xff34c759);
@@ -77,10 +81,13 @@ class DarkColors extends AtlasColor {
   Color get warning => const Color(0xff34c759);
 
   @override
-  Color get background => const Color(0xff34c759);
+  Color get background => const Color.fromARGB(255, 17, 15, 15);
 
   @override
-  Color get black => const Color(0xff34c759);
+  Color get black => const Color(0xff000000);
+
+  @override
+  Color get textPrimary => const Color(0xffffffff);
 
   @override
   Color get grey1 => const Color(0xff34c759);

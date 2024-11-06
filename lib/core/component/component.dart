@@ -1,46 +1,46 @@
-import 'package:atlas/core/behaviour/behaviour.dart';
+import 'package:atlas/core/state/atlas_state.dart';
 import 'package:atlas/core/component/component_style.dart';
 import 'package:flutter/material.dart';
 
 import 'base_component.dart';
 
 mixin Component<T, U> implements BaseComponent<T, U> {
-  Behaviour get behaviour;
+  AtlasState get state;
   @override
   Widget whenDisabled(T styles, U? otherStyles, BuildContext context,
-      Behaviour childBehaviour) {
+      AtlasState childBehaviour) {
     throw "$this does not implements Behaviour.disabled";
   }
 
   @override
   Widget whenEmpty(T styles, U? otherStyles, BuildContext context,
-      Behaviour childBehaviour) {
+      AtlasState childBehaviour) {
     throw "$this does not implements Behaviour.empty";
   }
 
   @override
   Widget whenError(T styles, U? otherStyles, BuildContext context,
-      Behaviour childBehaviour) {
+      AtlasState childBehaviour) {
     throw "$this does not implements Behaviour.error";
   }
 
   @override
   Widget whenLoading(T styles, U? otherStyles, BuildContext context,
-      Behaviour childBehaviour) {
+      AtlasState childBehaviour) {
     throw "$this does not implements Behaviour.loading";
   }
 
   @override
   Widget whenRegular(T styles, U? otherStyles, BuildContext context,
-      Behaviour childBehaviour) {
+      AtlasState childBehaviour) {
     throw "$this does not implements Behaviour.regular";
   }
 
   @override
   Widget render(
-      Behaviour behaviour, BuildContext context, ComponentStyle<T, U> styles) {
+      AtlasState behaviour, BuildContext context, ComponentStyle<T, U> styles) {
     switch (behaviour) {
-      case Behaviour.regular:
+      case AtlasState.regular:
         if (styles.regular == null) {
           throw "$this uses $behaviour but it does not have $behaviour style defined";
         }
@@ -50,7 +50,7 @@ mixin Component<T, U> implements BaseComponent<T, U> {
           context,
           behaviour,
         );
-      case Behaviour.loading:
+      case AtlasState.loading:
         if (styles.loading == null) {
           return whenRegular(
             styles.regular,
@@ -66,7 +66,7 @@ mixin Component<T, U> implements BaseComponent<T, U> {
           behaviour,
         );
 
-      case Behaviour.error:
+      case AtlasState.error:
         if (styles.error == null) {
           return whenRegular(
             styles.regular,
@@ -83,7 +83,7 @@ mixin Component<T, U> implements BaseComponent<T, U> {
           );
         }
 
-      case Behaviour.empty:
+      case AtlasState.empty:
         if (styles.empty == null) {
           return whenRegular(
             styles.regular,
@@ -100,7 +100,7 @@ mixin Component<T, U> implements BaseComponent<T, U> {
           behaviour,
         );
 
-      case Behaviour.disabled:
+      case AtlasState.disabled:
         if (styles.disabled == null) {
           return whenRegular(
             styles.regular,

@@ -1,9 +1,8 @@
 import 'package:atlas/atlas.dart';
-import 'package:atlas/core/behaviour/behaviour.dart';
 import 'package:flutter/material.dart';
 
 class AtomTabView extends StatefulWidget {
-  final Behaviour behaviour;
+  final AtlasState behaviour;
   const AtomTabView({
     Key? key,
     required this.behaviour,
@@ -16,7 +15,7 @@ class AtomTabView extends StatefulWidget {
 class AtomTabViewState extends State<AtomTabView> {
   Map<String, Map<String, Widget>> atoms = {};
 
-  List<Widget> _buildComponent(Behaviour behaviour) {
+  List<Widget> _buildComponent(AtlasState behaviour) {
     atoms = {
       'AtlasText': {
         'heading': AtlasText.heading(text: 'text', state: behaviour),

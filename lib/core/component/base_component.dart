@@ -1,4 +1,4 @@
-import 'package:atlas/core/behaviour/behaviour.dart';
+import 'package:atlas/core/state/atlas_state.dart';
 import 'package:flutter/material.dart';
 
 import 'component_style.dart';
@@ -8,39 +8,39 @@ abstract class BaseComponent<T, U> {
     T styles,
     U otherStyles,
     BuildContext context,
-    Behaviour childBehaviour,
+    AtlasState childState,
   );
 
   Widget whenLoading(
     T styles,
     U otherStyles,
     BuildContext context,
-    Behaviour childBehaviour,
+    AtlasState childState,
   );
 
   Widget whenError(
     T styles,
     U otherStyles,
     BuildContext context,
-    Behaviour childBehaviour,
+    AtlasState childState,
   );
 
   Widget whenDisabled(
     T styles,
     U otherStyles,
     BuildContext context,
-    Behaviour childBehaviour,
+    AtlasState childState,
   );
 
   Widget whenEmpty(
     T styles,
     U otherStyles,
     BuildContext context,
-    Behaviour childBehaviour,
+    AtlasState childState,
   );
 
   Widget render(
-    Behaviour behaviour,
+    AtlasState state,
     BuildContext context,
     ComponentStyle<T, U> styles,
   );

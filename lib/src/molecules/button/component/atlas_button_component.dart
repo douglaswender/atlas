@@ -1,5 +1,4 @@
 import 'package:atlas/atlas.dart';
-import 'package:atlas/core/behaviour/behaviour.dart';
 import 'package:atlas/core/component/component.dart';
 import 'package:atlas/core/component/component_style.dart';
 import 'package:atlas/src/molecules/button/component/atlas_button_style.dart';
@@ -8,7 +7,8 @@ import 'package:flutter/material.dart';
 class AtlasButtonComponent extends StatelessWidget
     with Component<AtlasButtonStyle, AtlasButtonSharedStyle> {
   final String text;
-  final Behaviour behaviour;
+  @override
+  final AtlasState state;
   final ComponentStyle<AtlasButtonStyle, AtlasButtonSharedStyle> styles;
   final Function()? onPressed;
 
@@ -16,18 +16,18 @@ class AtlasButtonComponent extends StatelessWidget
     super.key,
     required this.text,
     this.onPressed,
-    required this.behaviour,
+    required this.state,
     required this.styles,
   });
 
   @override
   Widget build(BuildContext context) {
-    return render(behaviour, context, styles);
+    return render(state, context, styles);
   }
 
   @override
   Widget whenDisabled(
-      styles, otherStyles, BuildContext context, Behaviour childBehaviour) {
+      styles, otherStyles, BuildContext context, AtlasState childBehaviour) {
     return GestureDetector(
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 350),
@@ -39,7 +39,7 @@ class AtlasButtonComponent extends StatelessWidget
           borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
         ),
         child: AtlasText(
-          state: behaviour,
+          state: state,
           text: text,
           styles: otherStyles!.textStyle,
         ),
@@ -49,7 +49,7 @@ class AtlasButtonComponent extends StatelessWidget
 
   @override
   Widget whenLoading(
-      styles, otherStyles, BuildContext context, Behaviour childBehaviour) {
+      styles, otherStyles, BuildContext context, AtlasState childBehaviour) {
     return GestureDetector(
       child: AnimatedContainer(
           duration: const Duration(milliseconds: 350),
@@ -68,7 +68,7 @@ class AtlasButtonComponent extends StatelessWidget
 
   @override
   Widget whenRegular(
-      styles, otherStyles, BuildContext context, Behaviour childBehaviour) {
+      styles, otherStyles, BuildContext context, AtlasState childBehaviour) {
     return InkWell(
       borderRadius: BorderRadius.circular(AtlasTheme.sizes.s32),
       onTap: onPressed,
@@ -82,7 +82,7 @@ class AtlasButtonComponent extends StatelessWidget
           borderRadius: BorderRadius.circular(AtlasTheme.sizes.s32),
         ),
         child: AtlasText(
-          state: behaviour,
+          state: state,
           text: text,
           styles: otherStyles!.textStyle,
         ),
@@ -92,7 +92,7 @@ class AtlasButtonComponent extends StatelessWidget
 
   @override
   Widget whenError(AtlasButtonStyle styles, AtlasButtonSharedStyle? otherStyles,
-      BuildContext context, Behaviour childBehaviour) {
+      BuildContext context, AtlasState childBehaviour) {
     return GestureDetector(
       onTap: onPressed,
       child: AnimatedContainer(
@@ -105,7 +105,7 @@ class AtlasButtonComponent extends StatelessWidget
           borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
         ),
         child: AtlasText(
-          state: behaviour,
+          state: state,
           text: text,
           styles: otherStyles!.textStyle,
         ),

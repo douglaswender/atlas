@@ -5,7 +5,7 @@ import 'component/atlas_button_component.dart';
 class AtlasButton extends AtlasButtonComponent {
   const AtlasButton({
     super.key,
-    required super.behaviour,
+    required super.state,
     required super.text,
     required super.onPressed,
     required super.styles,
@@ -14,14 +14,14 @@ class AtlasButton extends AtlasButtonComponent {
   AtlasButton.standard({
     super.key,
     required super.text,
-    required super.behaviour,
+    required super.state,
     super.onPressed,
   }) : super(styles: AtlasButtonStyles.standard());
 
   AtlasButton.danger({
     super.key,
     required super.text,
-    required super.behaviour,
+    required super.state,
     super.onPressed,
   }) : super(styles: AtlasButtonStyles.danger());
 }

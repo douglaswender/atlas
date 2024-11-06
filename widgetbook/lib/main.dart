@@ -1,4 +1,5 @@
 import 'package:atlas/atlas.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:widgetbook/widgetbook.dart';
 import 'package:widgetbook_annotation/widgetbook_annotation.dart' as widgetbook;
@@ -15,26 +16,31 @@ class WidgetbookApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Widgetbook(
+    return Widgetbook.material(
+      themeMode:
+          AtlasTheme.t().theme == 'dark' ? ThemeMode.dark : ThemeMode.light,
       addons: [
         AtlasThemeAddon(
           theme: 'theme',
         )
       ],
-      appBuilder: (context, child) {
-        return MaterialApp(
-          home: Scaffold(
-            backgroundColor: AtlasTheme.t().color.background,
-            resizeToAvoidBottomInset: true,
-            body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: child,
-              ),
-            ),
-          ),
-        );
-      },
+      // appBuilder: (context, child) {
+      //   return MaterialApp(
+      //     locale: DevicePreview.locale(context),
+      //     theme: AtlasTheme.t().theme == 'dark'
+      //         ? ThemeData.dark()
+      //         : ThemeData.light(),
+      //     builder: DevicePreview.appBuilder,
+      //     home: Scaffold(
+      //       body: SingleChildScrollView(
+      //         child: Padding(
+      //           padding: const EdgeInsets.all(16),
+      //           child: child,
+      //         ),
+      //       ),
+      //     ),
+      //   );
+      // },
       directories: directories,
     );
   }
