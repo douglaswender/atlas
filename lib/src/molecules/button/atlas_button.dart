@@ -1,4 +1,4 @@
-import 'package:atlas/src/molecules/button/atlas_button_styles.dart';
+import 'package:atlas/atlas.dart';
 
 import 'component/atlas_button_component.dart';
 
@@ -8,7 +8,6 @@ class AtlasButton extends AtlasButtonComponent {
     required super.state,
     required super.text,
     required super.onPressed,
-    required super.styles,
   });
 
   AtlasButton.standard({
@@ -16,12 +15,14 @@ class AtlasButton extends AtlasButtonComponent {
     required super.text,
     required super.state,
     super.onPressed,
-  }) : super(styles: AtlasButtonStyles.standard());
+  }) : super(
+          color: AtlasTheme.t().color.primary,
+        );
 
   AtlasButton.danger({
     super.key,
     required super.text,
     required super.state,
     super.onPressed,
-  }) : super(styles: AtlasButtonStyles.danger());
+  }) : super(color: AtlasTheme.t().color.danger);
 }

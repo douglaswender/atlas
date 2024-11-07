@@ -1,33 +1,34 @@
 import 'package:atlas/atlas.dart';
 import 'package:atlas/core/component/component.dart';
-import 'package:atlas/core/component/component_style.dart';
-import 'package:atlas/src/molecules/button/component/atlas_button_style.dart';
 import 'package:flutter/material.dart';
 
-class AtlasButtonComponent extends StatelessWidget
-    with Component<AtlasButtonStyle, AtlasButtonSharedStyle> {
+class AtlasButtonComponent extends StatelessWidget with Component {
   final String text;
   @override
   final AtlasState state;
-  final ComponentStyle<AtlasButtonStyle, AtlasButtonSharedStyle> styles;
   final Function()? onPressed;
+  final Color? color;
 
   const AtlasButtonComponent({
     super.key,
     required this.text,
     this.onPressed,
     required this.state,
-    required this.styles,
+    this.color,
   });
 
   @override
   Widget build(BuildContext context) {
-    return render(state, context, styles);
+    return render(state, context);
   }
 
   @override
-  Widget whenDisabled(
-      styles, otherStyles, BuildContext context, AtlasState childBehaviour) {
+  Widget whenEmpty(BuildContext context, AtlasState? state) {
+    return whenDisabled(context, AtlasState.regular);
+  }
+
+  @override
+  Widget whenDisabled(BuildContext context, AtlasState childBehaviour) {
     return GestureDetector(
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 350),
@@ -35,21 +36,19 @@ class AtlasButtonComponent extends StatelessWidget
         height: AtlasTheme.sizes.s48,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: styles.backgroundColor ?? AtlasTheme.t().color.primary,
+          color: AtlasTheme.t().color.grey1,
           borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
         ),
-        child: AtlasText(
-          state: state,
+        child: AtlasText.button(
+          state: AtlasState.regular,
           text: text,
-          styles: otherStyles!.textStyle,
         ),
       ),
     );
   }
 
   @override
-  Widget whenLoading(
-      styles, otherStyles, BuildContext context, AtlasState childBehaviour) {
+  Widget whenLoading(BuildContext context, AtlasState childBehaviour) {
     return GestureDetector(
       child: AnimatedContainer(
           duration: const Duration(milliseconds: 350),
@@ -57,7 +56,7 @@ class AtlasButtonComponent extends StatelessWidget
           height: AtlasTheme.sizes.s48,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: AtlasTheme.t().color.primary,
+            color: color,
             borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
           ),
           child: const CircularProgressIndicator(
@@ -67,8 +66,7 @@ class AtlasButtonComponent extends StatelessWidget
   }
 
   @override
-  Widget whenRegular(
-      styles, otherStyles, BuildContext context, AtlasState childBehaviour) {
+  Widget whenRegular(BuildContext context, AtlasState childBehaviour) {
     return InkWell(
       borderRadius: BorderRadius.circular(AtlasTheme.sizes.s32),
       onTap: onPressed,
@@ -78,21 +76,19 @@ class AtlasButtonComponent extends StatelessWidget
         height: AtlasTheme.sizes.s48,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: styles.backgroundColor,
-          borderRadius: BorderRadius.circular(AtlasTheme.sizes.s32),
+          color: color,
+          borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
         ),
-        child: AtlasText(
-          state: state,
+        child: AtlasText.button(
+          state: AtlasState.regular,
           text: text,
-          styles: otherStyles!.textStyle,
         ),
       ),
     );
   }
 
   @override
-  Widget whenError(AtlasButtonStyle styles, AtlasButtonSharedStyle? otherStyles,
-      BuildContext context, AtlasState childBehaviour) {
+  Widget whenError(BuildContext context, AtlasState childBehaviour) {
     return GestureDetector(
       onTap: onPressed,
       child: AnimatedContainer(
@@ -101,13 +97,12 @@ class AtlasButtonComponent extends StatelessWidget
         height: AtlasTheme.sizes.s48,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: styles.backgroundColor ?? AtlasTheme.t().color.warning,
+          color: color ?? AtlasTheme.t().color.warning,
           borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
         ),
-        child: AtlasText(
-          state: state,
+        child: AtlasText.button(
+          state: AtlasState.regular,
           text: text,
-          styles: otherStyles!.textStyle,
         ),
       ),
     );

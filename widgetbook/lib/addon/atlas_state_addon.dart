@@ -20,8 +20,11 @@ class AtlasStateAddon extends WidgetbookAddon<AtlasState> {
 
   @override
   AtlasState valueFromQueryGroup(Map<String, String> group) {
-    Provider.of<AtlasStateController>(context, listen: false)
-        .updateState(valueOf('state', group));
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<AtlasStateController>(context, listen: false)
+          .updateState(valueOf('state', group));
+    });
+
     return valueOf('state', group);
   }
 }

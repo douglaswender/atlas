@@ -1,34 +1,36 @@
 import 'package:atlas/core/state/atlas_state.dart';
 import 'package:atlas/core/component/component.dart';
-import 'package:atlas/core/component/component_style.dart';
-import 'package:atlas/src/atoms/card/component/atlas_card_style.dart';
 import 'package:flutter/material.dart';
 
-class AtlasCardComponent extends StatelessWidget
-    with Component<AtlasCardStyle, AtlasCardSharedStyle> {
+class AtlasCardComponent extends StatelessWidget with Component {
   @override
   final AtlasState state;
   final Widget? child;
-  final ComponentStyle<AtlasCardStyle, AtlasCardSharedStyle> styles;
+  final double? height;
+  final AlignmentGeometry begin;
+  final AlignmentGeometry end;
+  final List<Color> colors;
   const AtlasCardComponent({
     Key? key,
     required this.state,
-    required this.styles,
     this.child,
+    this.height,
+    this.begin = Alignment.topRight,
+    this.end = Alignment.bottomLeft,
+    required this.colors,
   }) : super(key: key);
 
   @override
-  Widget whenRegular(AtlasCardStyle styles, AtlasCardSharedStyle? otherStyles,
-      BuildContext context, AtlasState childBehaviour) {
+  Widget whenRegular(BuildContext context, AtlasState childBehaviour) {
     return Card(
       child: Container(
         width: MediaQuery.of(context).size.width,
-        height: styles.height,
+        height: height,
         decoration: BoxDecoration(
             gradient: LinearGradient(
-          begin: styles.begin ?? Alignment.topRight,
-          end: styles.begin ?? Alignment.bottomLeft,
-          colors: styles.colors,
+          begin: begin,
+          end: end,
+          colors: colors,
         )),
         child: child,
       ),
@@ -37,6 +39,6 @@ class AtlasCardComponent extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    return render(state, context, styles);
+    return render(state, context);
   }
 }
