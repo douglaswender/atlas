@@ -2,7 +2,7 @@ import 'package:atlas/atlas.dart';
 import 'package:atlas/core/component/component.dart';
 import 'package:flutter/material.dart';
 
-class AtlasAccordion extends StatefulWidget {
+class AtlasAccordion extends StatefulWidget with Component {
   const AtlasAccordion({
     super.key,
     required this.steps,
@@ -11,6 +11,7 @@ class AtlasAccordion extends StatefulWidget {
 
   final List<AtlasAccordionStep> steps;
 
+  @override
   final AtlasState state;
 
   @override

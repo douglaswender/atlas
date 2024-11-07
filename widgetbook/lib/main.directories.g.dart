@@ -33,12 +33,18 @@ final directories = <_i1.WidgetbookNode>[
       _i1.WidgetbookFolder(
         name: 'text',
         children: [
-          _i1.WidgetbookLeafComponent(
+          _i1.WidgetbookComponent(
             name: 'AtlasText',
-            useCase: _i1.WidgetbookUseCase(
-              name: 'Default',
-              builder: _i3.defaultText,
-            ),
+            useCases: [
+              _i1.WidgetbookUseCase(
+                name: 'Body',
+                builder: _i3.body,
+              ),
+              _i1.WidgetbookUseCase(
+                name: 'Heading',
+                builder: _i3.heading,
+              ),
+            ],
           )
         ],
       ),
