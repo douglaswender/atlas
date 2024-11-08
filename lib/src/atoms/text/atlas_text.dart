@@ -10,8 +10,17 @@ class AtlasText extends AtlasTextComponent {
     super.state,
   }) : super(
           color: AtlasTheme.t().color.textPrimary,
+          style: DefaultTextStyles().headlineBold,
+        );
+
+  AtlasText.subtitle({
+    super.key,
+    required super.text,
+    super.state,
+  }) : super(
+          color: AtlasTheme.t().color.textPrimary,
           style: DefaultTextStyles().headlineBold.copyWith(
-                fontSize: 32,
+                fontSize: 24,
                 fontWeight: FontWeight.w700,
               ),
         );
@@ -33,7 +42,7 @@ class AtlasText extends AtlasTextComponent {
     required super.text,
     super.state,
   }) : super(
-          color: AtlasTheme.t().color.white,
+          color: AtlasTheme.t().color.backgroundSurface,
           style: DefaultTextStyles().bodyRegular.copyWith(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,

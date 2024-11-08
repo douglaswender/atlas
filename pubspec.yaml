@@ -27,14 +27,15 @@ flutter:
   #
  
   fonts:
-    - family: Poppins
-      fonts:
-        - asset: assets/fonts/Poppins-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/Poppins-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/Poppins-Bold.ttf
-          weight: 700
+    # - family: Poppins
+    #   fonts:
+    #     - asset: assets/fonts/Poppins-Regular.ttf
+    #       weight: 400
+    #     - asset: assets/fonts/Poppins-Medium.ttf
+    #       weight: 500
+    #     - asset: assets/fonts/Poppins-Bold.ttf
+    #       weight: 700
+
     - family: AtlasIcons
       fonts:
         - asset: assets/fonts/atlas-32px.ttf

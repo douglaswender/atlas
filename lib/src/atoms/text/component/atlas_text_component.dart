@@ -35,9 +35,21 @@ class AtlasTextComponent extends StatelessWidget
 
   @override
   Widget whenError(BuildContext context, AtlasState childBehaviour) {
-    return Text(
-      text,
-      style: style?.copyWith(color: color),
-    );
+    return whenRegular(context, childBehaviour);
+  }
+
+  @override
+  Widget whenEmpty(BuildContext context, AtlasState state) {
+    return whenRegular(context, state);
+  }
+
+  @override
+  Widget whenDisabled(BuildContext context, AtlasState childBehaviour) {
+    return whenRegular(context, childBehaviour);
+  }
+
+  @override
+  Widget whenLoading(BuildContext context, AtlasState childBehaviour) {
+    return whenRegular(context, childBehaviour);
   }
 }

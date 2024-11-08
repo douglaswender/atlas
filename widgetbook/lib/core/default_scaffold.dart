@@ -9,7 +9,7 @@ class DefaultScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AtlasTheme.t().color.background,
+      backgroundColor: AtlasTheme.t().color.backgroundBase,
       body: SingleChildScrollView(
           child: Padding(
         padding: const EdgeInsets.all(16),

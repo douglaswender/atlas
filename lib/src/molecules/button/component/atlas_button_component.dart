@@ -13,7 +13,7 @@ class AtlasButtonComponent extends StatelessWidget with Component {
     super.key,
     required this.text,
     this.onPressed,
-    required this.state,
+    this.state = AtlasState.regular,
     this.color,
   });
 
@@ -59,8 +59,9 @@ class AtlasButtonComponent extends StatelessWidget with Component {
             color: color,
             borderRadius: BorderRadius.circular(AtlasTheme.sizes.s8),
           ),
-          child: const CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+          child: CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color>(
+                AtlasTheme.t().color.backgroundSurface),
           )),
     );
   }

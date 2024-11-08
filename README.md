@@ -6,7 +6,7 @@ Cada componente é dividido em 3 arquivos:
 
 - começando pelo aquivo com o prefixo _style, é responsável pela definição dos parâmetros que estilizam o componente
 
-```
+```dart
 class AtlasExampleStyle {
     final Color? backgroundColor;
     final BoxDecoration boxDecoration;
