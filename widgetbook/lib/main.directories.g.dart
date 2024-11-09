@@ -13,6 +13,7 @@ import 'package:widgetbook/widgetbook.dart' as _i1;
 import 'package:widgetbook_workspace/atoms/accordion.dart' as _i2;
 import 'package:widgetbook_workspace/atoms/text.dart' as _i3;
 import 'package:widgetbook_workspace/molecules/button.dart' as _i4;
+import 'package:widgetbook_workspace/molecules/checkbox.dart' as _i5;
 
 final directories = <_i1.WidgetbookNode>[
   _i1.WidgetbookFolder(
@@ -64,7 +65,25 @@ final directories = <_i1.WidgetbookNode>[
             ),
           )
         ],
-      )
+      ),
+      _i1.WidgetbookFolder(
+        name: 'checkbox',
+        children: [
+          _i1.WidgetbookComponent(
+            name: 'AtlasCheckbox',
+            useCases: [
+              _i1.WidgetbookUseCase(
+                name: 'With label',
+                builder: _i5.withLabel,
+              ),
+              _i1.WidgetbookUseCase(
+                name: 'Without label',
+                builder: _i5.withoutLabel,
+              ),
+            ],
+          )
+        ],
+      ),
     ],
   ),
 ];
